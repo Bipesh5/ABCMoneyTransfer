@@ -1,0 +1,80 @@
+﻿@model ABCMoneyTransfer.Models.ViewModel.SignupViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Signup</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Signup" method="post">
+                        <div class="form-group">
+                            <label for="FirstName">First Name</label>
+                            <input asp-for="FirstName" class="form-control" required placeholder="Enter your first name" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="MiddleName">Middle Name</label>
+                            <input asp-for="MiddleName" class="form-control" placeholder="Enter your middle name" />
+                            <span asp-validation-for="MiddleName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="LastName">Last Name</label>
+                            <input asp-for="LastName" class="form-control" required placeholder="Enter your last name" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">Address</label>
+                            <input asp-for="Address" class="form-control" required placeholder="Enter your address" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input asp-for="Email" class="form-control" required type="email" placeholder="Enter your email" id="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <span id="emailError" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input asp-for="Password" class="form-control" required type="password" placeholder="Enter your password" id="Password" onkeyup="validatePassword()" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ConfirmPassword">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" class="form-control" required type="password" placeholder="Confirm your password" id="ConfirmPassword" onkeyup="validatePassword()" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <span id="passwordError" class="text-danger"></span>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" id="submitButton">Signup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function validatePassword() {
+        var password = document.getElementById("Password").value;
+        var confirmPassword = document.getElementById("ConfirmPassword").value;
+        var errorMessage = document.getElementById("passwordError");
+        var submitButton = document.getElementById("submitButton");
+
+        if (password.length < 8) {
+            errorMessage.textContent = "Password must be at least 8 characters long.";
+            submitButton.style.display = "none";
+        } else if (password !== confirmPassword) {
+            errorMessage.textContent = "Passwords do not match.";
+            submitButton.style.display = "none";
+        } else {
+            errorMessage.textContent = "";
+            submitButton.style.display = "block";
+        }
+    }
+
+</script>

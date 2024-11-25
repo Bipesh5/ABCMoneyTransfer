@@ -1,0 +1,57 @@
+﻿@model ABCMoneyTransfer.Models.Payment
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h1 class="text-center text-primary my-4">Transaction Details</h1>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Payment Information</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <th>Sender</th>
+                        <td>@Model.SFirstName @Model.SMiddleName @Model.SLastName</td>
+                    </tr>
+                    <tr>
+                        <th>Receiver</th>
+                        <td>@Model.RFirstName @Model.RMiddleName @Model.RLastName</td>
+                    </tr>
+                    <tr>
+                        <th>Bank Name</th>
+                        <td>@Model.BankName</td>
+                    </tr>
+                    <tr>
+                        <th>Account Number</th>
+                        <td>@Model.AccountNumber</td>
+                    </tr>
+                    <tr>
+                        <th>Transfer Amount (MYR)</th>
+                        <td>@Model.TransferAmount</td>
+                    </tr>
+                    <tr>
+                        <th>Exchange Rate</th>
+                        <td>@Model.ExchangeRate</td>
+                    </tr>
+                    <tr>
+                        <th>Payout Amount (NPR)</th>
+                        <td>@Model.PayoutAmount</td>
+                    </tr>
+                    <tr>
+                        <th>Payment Date</th>
+                        <td>@Model.PaymentDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="@Url.Action("Index", "Transfer")" class="btn btn-secondary btn-lg">Back to List</a>
+    </div>
+</div>

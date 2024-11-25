@@ -1,0 +1,52 @@
+﻿/* Custom sidebar toggle styles */
+.main-sidebar.toggled {
+    width: 0 !important;
+    overflow: hidden;
+}
+
+.main-sidebar {
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+/* Styling for the sidebar links */
+.nav-link {
+    color: #fff;
+}
+
+    .nav-link:hover {
+        background-color: #444;
+    }
+
+/* Top navbar styles */
+.main-header .navbar {
+    background-color: #343a40;
+    padding: 10px;
+}
+
+/* Make navbar items more prominent */
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+}
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #ddd;
+    }
+
+#userFullName {
+    font-weight: bold;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    background-color: #343a40;
+    border-color: #6c757d;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+    .dropdown-item:hover {
+        background-color: #007bff;
+    }

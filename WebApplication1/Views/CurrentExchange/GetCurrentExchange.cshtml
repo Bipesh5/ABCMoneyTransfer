@@ -1,0 +1,41 @@
+﻿@model List<ABCMoneyTransfer.Models.Rate>
+
+@{
+    ViewBag.Title = "Get Exchange Rate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}<br />
+<h1>     Current Exchange Rates</h1>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No exchange rate data available.</p>
+}
+else
+{
+        
+
+    <div style="background: #a891c714;padding-left: 15px;margin: 10px;">
+        
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Currency</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Buy Rate</th>
+                <th scope="col">Sell Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rate in Model)
+            {
+                <tr>
+                    <td>@rate.Currency.Name (@rate.Currency.Iso3)</td>
+                    <td>@rate.Currency.Unit</td>
+                    <td>@rate.Buy</td>
+                    <td>@rate.Sell</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+}
